@@ -1,0 +1,24 @@
+<h3>{{event.title}}</h3>
+<h6>{{event.description}}</h6>
+<br>
+<div class="row gap-5">
+    <div class="col">
+        <h6>Reservers</h6>
+        <br>
+        <ul class="list-group">
+            {{{listofReservers event.reservers event._id}}}
+        </ul>
+    </div>
+
+    <div class="col">
+        <h6>Present Attendance</h6>
+        <br>
+        <ul class="list-group">
+            {{#each event.attendees}}
+                <li class="list-group-item secondary-bg-color text-white text-capitalize">
+                    {{this.firstname}} {{this.lastname}}
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>

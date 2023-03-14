@@ -1,0 +1,57 @@
+<h2 class="mb-5">Dashboard - Admin</h2>
+<div class="mt-5 row">
+    <div class="col">
+        <h4>Create Event</h4>
+        <form action="/event" method="post" class="d-grid gap-3">
+            <div>
+                <label for="title">Title</label>
+                <input type="text" class="form-control form-control-sm border-0" id="title" name="title" required>
+            </div>
+            <div>
+                <label for="description">Description</label>
+                <textarea class="form-control form-control-sm border-0" id="description" cols="30" rows="5" name="description" required></textarea>
+            </div>
+            <div>
+                <label for="date">Date</label>
+                <input type="datetime-local" name="date" id="date">
+            </div>
+            <button class="btn btn-sm btn-primary">Create</button>
+        </form>
+    </div>
+
+    <div class="col">
+        <h4>Create FAQs</h4>
+        <form action="/faqs" method="post" class="d-grid gap-3">
+            <div>
+                <label for="title">Title</label>
+                <input type="text" class="form-control form-control-sm border-0" id="title" name="title">
+            </div>
+            <div>
+                <label for="description">Description</label>
+                <textarea class="form-control form-control-sm border-0" id="description" cols="30" rows="5" name="description"></textarea>
+            </div>
+            <button type="submit" class="btn btn-sm btn-primary">Save</button>
+        </form>
+    </div>
+</div>
+
+<hr class="my-5">
+
+<ul class="list-group gap-1">
+    {{#each events}}
+        <li class="list-group-item secondary-bg-color">
+            <a href="/event/{{this._id}}" class="text-decoration-none text-white">{{this.title}}</a>
+        </li>
+    {{/each}}
+</ul>
+
+
+{{!-- <div class="d-flex align-items-start gap-5">
+    <div class="col-2 secondary-bg-color p-2 text-white">
+        <p class="text-capitalize"><span><i class="bi bi-person-circle me-2"></i></span>{{user.firstname}} {{user.lastname}}</p>
+        <p>Bio: </p>
+        <p>Articles: </p>
+        <p>Designs: </p>
+        <p>Badges: </p>
+    </div>
+</div> --}}

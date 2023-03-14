@@ -1,0 +1,39 @@
+{{#if success_msg}}
+<div class="toast d-block align-items-center position-fixed bottom-0 end-0 me-2 mb-2  bg-success text-white">
+  <div class="toast-body">
+    {{#each success_msg}}
+      {{this}}
+    {{/each}}
+  </div>
+</div>
+{{/if}}
+
+{{#if error_msg}}
+<div class="toast d-block align-items-center position-fixed bottom-0 end-0 me-2 mb-2  bg-danger text-white">
+  <div class="toast-body">
+    {{#each error_msg}}
+      {{this}}
+    {{/each}}
+  </div>
+</div>
+{{/if}}
+
+{{#if error}}
+<div class="toast d-block align-items-center position-fixed bottom-0 end-0 me-2 mb-2  bg-danger text-white">
+  <div class="toast-body">
+    {{#each error}}
+      {{this}}
+    {{/each}}
+  </div>
+</div>
+{{/if}}
+
+{{#if success}}
+<div class="toast d-block align-items-center position-fixed bottom-0 end-0 me-2 mb-2  bg-success text-white">
+  <div class="toast-body">
+    {{#each success}}
+      {{this}}
+    {{/each}}
+  </div>
+</div>
+{{/if}}

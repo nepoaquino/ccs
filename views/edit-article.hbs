@@ -1,0 +1,27 @@
+<div class="container">
+
+    {{> navbar}}
+
+    {{!-- <span class="text-capitalize text-white">{{user.firstname}}</span> --}}
+
+    <h2 class="text-white mt-5">Article Post</h2>
+    <form action="/articles/edit/{{article._id}}?_method=PUT" class="d-grid" method="POST">
+        {{!-- <input type="text" class="form-control form-control-sm" name="userID" value="{{user._id}}"> --}}
+        <input type="hidden" name="author" value="{{user._id}}">
+        <div class="mb-3">
+            <label for="title" class="form-label text-white">Title</label>
+            <input type="text" class="form-control form-control-sm border-0" id="title" name="title" value="{{article.title}}">
+        </div>
+        <div class="mb-3">
+            <label for="body" class="form-label text-white">Body</label>
+            {{!-- <textarea class="form-control border-0 text-white" id="body" cols="30" rows="10" name="body" style="background-color: #161b22"></textarea> --}}
+            <textarea class="form-control border-0" id="body" cols="30" rows="10" name="body">{{article.body}}</textarea>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-sm btn-dark">Submit Edit</button>
+        </div>
+    </form>
+
+    {{> notification}}
+
+</div>

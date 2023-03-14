@@ -1,0 +1,28 @@
+<h2 class="mb-5">Articles</h2>
+
+{{messages}}
+
+<ul class="list-group mb-5 gap-2">
+    {{#each articles}}
+        <li class="list-group-item secondary-bg-color text-white text-capitalize">
+            <h2>{{this.title}}</h2>
+            <div class="d-flex justify-content-between align-items-center">
+                <div>{{this.author.firstname}} {{this.author.lastname}}</div>
+                {{!-- <div class="d-flex justify-content-end gap-2"> --}}
+                <div class="d-flex gap-2">
+                    {{!-- <button class="btn btn-sm btn-outline-light">View</button> --}}
+                    {{!-- <a href="/articles/{{this._id}}" class="btn btn-sm btn-outline-light">View</a> --}}
+                    <a href="/articles/{{this._id}}" class="text-white" title="View"><i class="bi bi-file-earmark-text-fill"></i></a>
+                    {{#if this.userLogged}}
+                        {{!-- <button class="btn btn-sm btn-primary"><i class="bi bi-pencil-fill"></i></button> --}}
+                        <a href="/articles/edit/{{this._id}}" class="btn btn-sm btn-primary"><i class="bi bi-pencil-fill"></i></a>
+                        <form action="/articles/{{this._id}}?_method=DELETE" id="deleteArticleBtn" method="POST">
+                            <button type="submit" class="btn btn-sm btn-danger"><i class="bi bi-trash3-fill"></i></button>
+                        </form>
+                    {{/if}}
+                </div>
+            </div>
+        </li>
+    {{/each}}
+</ul>
+

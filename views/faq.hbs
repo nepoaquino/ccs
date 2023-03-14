@@ -1,0 +1,14 @@
+<div class="container text-white">
+    <h4 class="mt-5 mb-4 ">New FAQs</h4>
+    <form action="/faqs/{{faq._id}}?_method=PUT" method="post">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control mb-3 border-0" id="title" name="title" value="{{faq.title}}">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control mb-3 border-0" id="description" name="description">{{faq.description}}</textarea>
+        </div>
+        <button type="submit" class="btn btn-sm btn-primary">Save</button>
+    </form>
+</div>

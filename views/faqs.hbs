@@ -1,0 +1,17 @@
+<h2 class="mb-5">FAQs</h2>
+
+<div class="accordion accordion-flush" id="accordionFlushExample">
+    {{#each faqs}}
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button collapsed secondary-bg-color text-white" type="button" data-bs-toggle="collapse" data-bs-target="#accord-item-{{this._id}}" aria-expanded="false" aria-controls="accord-item-{{this._id}}" style="background-color: #161b22">{{this.title}}</button>
+            </h2>
+            <div id="accord-item-{{this._id}}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                <div class="secondary-bg-color pt-2 pe-2 d-flex justify-content-end">
+                    <a href="/faqs/{{this._id}}" class="btn btn-sm btn-primary"><i class="bi bi-pencil-fill"></i></a>
+                </div>
+                <div class="accordion-body secondary-bg-color text-white">{{{this.markedHtml}}}</div>
+            </div>
+        </div>
+    {{/each}}
+</div>

@@ -1,0 +1,20 @@
+<div class="container">
+
+    {{> navbar}}
+
+    {{#if article.userLogged}}
+        <div class="d-flex justify-content-end gap-2">
+            <a href="/articles/edit/{{this._id}}" class="btn btn-sm btn-primary"><i class="bi bi-pencil-fill"></i></a>
+            <form action="/articles/{{article._id}}?_method=DELETE" id="deleteArticleBtn" method="POST">
+                <button type="submit" class="btn btn-sm btn-danger"><i class="bi bi-trash3-fill"></i></button>
+            </form>
+        </div>
+    {{/if}}
+
+    <h3 class="my-5 text-white text-center">{{article.title}}</h3>
+
+    <div class="text-white">{{{article.markedHtml}}}</div>
+
+    {{> notification}}
+
+</div>

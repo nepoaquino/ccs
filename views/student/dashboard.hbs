@@ -1,0 +1,64 @@
+<h2 class="mb-5">Dashboard - Student</h2>
+
+<h4>Incoming Events</h4>
+
+<div class="row gap-5">
+    {{#each events}}
+        <div class="secondary-bg-color p-4 rounded col-5">
+            <div class="d-flex justify-content-end">
+                <span class="badge bg-success">Ongoing Reservation</span>
+            </div>
+            <br>
+            <div style="height: 6rem;">
+                <h4>{{this.title}}</h4>
+                <p>{{this.description}}</p>
+                <p>{{formatDate this.date}}</p>
+            </div>
+            <div class="mt-5 d-flex gap-3">
+                {{!-- {{this.userID}} --}}
+                {{{isCurrentUserReserved this.reservers this.userID this._id}}}
+
+                <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#detail{{this._id}}Modal">
+                    Details
+                </button>
+
+                <div class="modal fade" id="detail{{this._id}}Modal" tabindex="-1" aria-labelledby="detail{{this._id}}ModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content primary-bg-color">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="detail{{this._id}}ModalLabel">Reservers</h1>
+                                <p>{{this.reservers.length}} / 80</p>
+                            </div>
+                            <div class="modal-body">
+                                <ul class="list-group gap-2">
+                                    {{{listofReservers this.reservers this._id}}}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{!-- <p>Seats Left: {{80 - this.attendees.length}}</p> --}}
+
+            </div>
+        </div>
+    {{/each}}
+</div>
+
+<hr class="my-5">
+
+<div style="width: 40rem;">
+    <h2>Article Post</h2>
+    <form action="/articles" class="d-grid gap-3" method="POST">
+        <input type="hidden" name="author" value="{{user._id}}">
+        <div>
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control form-control-sm border-0" id="title" name="title">
+        </div>
+        <div>
+            <label for="body" class="form-label">Body</label>
+            <textarea class="form-control border-0" id="body" cols="30" rows="10" name="body"></textarea>
+        </div>
+        <button class="btn btn-sm btn-dark">Submit</button>
+    </form>
+</div>
